@@ -6,16 +6,30 @@ exports.config = {
   ],
 
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
+    'chromeOptions': {
+      binary: '/usr/bin/google-chrome',
+      args: [],
+      extensions: [],
+    }
+
+    //'browserName': 'firefox'
   },
 
-  chromeOnly: true,
+  chromeDriver: './node_modules/protractor/selenium/chromedriver',
 
-  baseUrl: 'http://localhost:8000/',
+  //chromeOnly: true,
+
+  baseUrl: 'http://localhost:8080/',
 
   framework: 'jasmine',
 
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000
-  }
+  },
+
+  //directConnect: true,
+
+  seleniumAddress: 'http://localhost:4444/wd/hub',
+
 };
