@@ -15,7 +15,7 @@ module.exports = function(config){
 
     frameworks: ['jasmine'],
 
-    browsers : ['Chrome'],
+    browsers : ['Chrome', 'Firefox'],
 
     plugins : [
             'karma-chrome-launcher',
@@ -26,7 +26,12 @@ module.exports = function(config){
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
+    },
+
+    client : {
+      captureConsole : true
     }
+
 
   });
 };
