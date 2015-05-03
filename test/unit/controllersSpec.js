@@ -29,32 +29,25 @@ describe('PhoneListCtrl', function(){
 });
 
 
-describe('PhoneListCtrl', function(){
+describe('PhoneCat controllers', function() {
 
-  beforeEach(module('phonecatApp'));
+  describe('PhoneListCtrl', function(){
+    var scope, ctrl;
 
-  it('should show the name as World', inject(function($controller) {
-    var scope = {},
-        ctrl = $controller('PhoneListCtrl', {$scope:scope});
+    beforeEach(module('phonecatApp'));
 
-    expect(scope.name).toBe('World');
+    beforeEach(inject(function($controller) {
+      scope = {};
+      ctrl = $controller('PhoneListCtrl', {$scope:scope});
+    }));
 
-  }));
+    it('should create "phones" model with 3 phones', function() {
+      expect(scope.phones.length).toBe(3);
+    });
 
-});
 
-
-
-describe('PhoneListCtrl', function(){
-
-  beforeEach(module('phonecatApp'));
-
-  it('should create "phones" model with 4 phones (and fail)', inject(function($controller) {
-    var scope = {},
-        ctrl = $controller('PhoneListCtrl', {$scope:scope});
-
-    expect(scope.phones.length).toBe(4);
-
-  }));
-
+    it('should set the default value of orderProp model', function() {
+      expect(scope.orderProp).toBe('age');
+    });
+  });
 });

@@ -13,14 +13,20 @@
   <p>Hello, {{name}}!</p>
 
   <p>Total number of phones: {{phones.length}}</p>
-   
+  <p>Currently sorting by: {{orderProp}}</p>
+  
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-2">
         <!--Sidebar content-->
 
         Search: <input ng-model="query">
-
+        Sort by:
+        <select ng-model="orderProp">
+          <option value="name">Alphabetical</option>
+          <option value="age">Newest</option>
+          <option value="-age">Oldest</option>
+        </select>
       </div>
 
       <div class="col-md-10">
@@ -29,7 +35,7 @@
 	<p>Searching for: {{query}}</p>
 
         <ul class="phones">
-          <li ng-repeat="phone in phones | filter:query">
+          <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
             <span>{{phone.name}}</span>
             <p>{{phone.snippet}}</p>
           </li>
