@@ -1,6 +1,10 @@
-<button ng-click="hello('Elmo')">Hello</button>
+<div class="phone-images">
+  <img ng-src="{{img}}"
+      class="phone"
+      ng-repeat="img in phone.images"
+      ng-class="{active: mainImageUrl==img}">
+</div>
 
-<img ng-src="{{mainImageUrl}}" class="phone">
 
 <h1>{{phone.name}}</h1>
 
