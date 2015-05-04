@@ -26,7 +26,12 @@ module.exports = function(config){
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
+    },
+
+    client : {
+      captureConsole : true
     }
+
 
   });
 };
